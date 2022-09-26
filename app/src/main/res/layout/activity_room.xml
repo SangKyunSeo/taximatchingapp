@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity"
+    android:stretchColumns="0,1"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="출발지 목적지 선택"
+
+        />
+
+    <TableRow>
+    <Button
+        android:layout_marginTop="250dp"
+        android:id="@+id/btn_sj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:text="학교->조치원역"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        />
+    <Button
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/btn_js"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:text="조치원역->학교"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        />
+    </TableRow>
+
+    <TableRow>
+    <Button
+        android:background="@color/yellow"
+        android:layout_marginTop="20dp"
+        android:id="@+id/btn_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="학교->오송역"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        />
+
+    <Button
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/btn_os"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오송역->학교"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        />
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "31578875538",
+    "firebase_url": "https://matching-for-taxi-default-rtdb.firebaseio.com",
+    "project_id": "matching-for-taxi",
+    "storage_bucket": "matching-for-taxi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31578875538:android:f79f92bf7e5326f9b4684b",
+        "android_client_info": {
+          "package_name": "com.example.chatt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31578875538-hsp76v58h7msciu1d7au482dgurqbf5j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatt",
+            "certificate_hash": "134d37a82ff0a94166b85e2c76a86ed1b2dc3d50"
+          }
+        },
+        {
+          "client_id": "31578875538-ggrdhcnso8kr13khp6umglns2dih67et.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaeVgqmpr8l-G7VwVoCdWzB09NboIulRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31578875538-ggrdhcnso8kr13khp6umglns2dih67et.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
