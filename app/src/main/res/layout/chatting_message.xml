@@ -27,7 +27,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Chat message"
         android:gravity="left|center_vertical|center_horizontal"
-        android:background="@drawable/square"
+        android:background="@drawable/rectangle"
         android:layout_marginLeft="10dp" />
 
 
