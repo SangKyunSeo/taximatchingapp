@@ -28,7 +28,6 @@ public class arrayAdapter extends RecyclerView.Adapter<arrayAdapter.ViewHolder> 
     public arrayAdapter(ArrayList<chat> arr_roomList) {
         this.listViewItemList = arr_roomList;
     }
-
     public interface OnItemClickListener{
         void OnItemClick(View v, int pos);
     }

@@ -1,11 +1,17 @@
 package com.example.chatt;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,17 +37,17 @@ import java.util.Map;
 
 public class sjChatActivity extends AppCompatActivity {
 
-
     private ListView lv_chatting;
     private EditText et_send;
     private Button btn_send;
+    private TextView room_view;
 
-    private ArrayAdapter<String> arrayAdapter;
+    //private ArrayAdapter<String> arrayAdapter;
+    private chatAdapter chatadapter;
     private ArrayList<String> arr_room = new ArrayList<>();
 
     private String str_room_name;
     private String str_user_name;
-    private String str_time;
 
     private DatabaseReference reference;
     private String key;
@@ -56,6 +62,7 @@ public class sjChatActivity extends AppCompatActivity {
 
         et_send = (EditText) findViewById(R.id.et_send);
         lv_chatting = (ListView)findViewById(R.id.lv_chatting);
+        room_view = (TextView)findViewById(R.id.room_name);
         btn_send = (Button)findViewById(R.id.btn_send);
 
         str_room_name = getIntent().getExtras().getString("room_name");
@@ -63,11 +70,14 @@ public class sjChatActivity extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference().child("From univ to j_station").child(str_room_name);
 
-        setTitle(str_room_name + "채팅방");
+        room_view.setText(str_room_name);
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr_room);
-        lv_chatting.setAdapter(arrayAdapter);
+        chatadapter = new chatAdapter();
+        lv_chatting.setAdapter(chatadapter);
         lv_chatting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+//        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr_room);
+//        lv_chatting.setAdapter(arrayAdapter);
+//        lv_chatting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,13 +134,12 @@ public class sjChatActivity extends AppCompatActivity {
             chat_message = i.next().getValue().toString();
             chat_user = i.next().getValue().toString();
 
-
-            arrayAdapter.add(chat_user + " : " + chat_message);
+            //chatadapter.add(chat_user + " : " + chat_message);
+            chatadapter.add(chat_user,chat_message);
 
         }
-        arrayAdapter.notifyDataSetChanged();
+        chatadapter.notifyDataSetChanged();
 
     }
-
 
 }

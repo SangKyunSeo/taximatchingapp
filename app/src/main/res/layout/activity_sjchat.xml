@@ -1,15 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"
+     ?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
-    <ListView
-        android:id="@+id/lv_chatting"
+    <TextView
+        android:id="@+id/room_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"/>
+        android:layout_height="30dp"
+        android:text="room_name"
+        android:background="@drawable/shape"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/black"
+
+        />
+
+   <ListView
+       android:id="@+id/lv_chatting"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginBottom="50dp"
+       android:dividerHeight="5dp"
+       android:divider="@color/white"
+
+     />
+
+
 
     <LinearLayout
         android:layout_marginTop="-50dp"

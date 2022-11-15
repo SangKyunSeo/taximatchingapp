@@ -1,11 +1,14 @@
 package com.example.chatt;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +31,7 @@ public class soChatActivity extends AppCompatActivity {
     private ListView lv_chatting;
     private EditText et_send;
     private Button btn_send;
+    private TextView room_view;
 
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> arr_room = new ArrayList<>();
@@ -49,14 +53,18 @@ public class soChatActivity extends AppCompatActivity {
         et_send = (EditText) findViewById(R.id.et_send);
         lv_chatting = (ListView)findViewById(R.id.lv_chatting);
         btn_send = (Button)findViewById(R.id.btn_send);
-
+        room_view = (TextView)findViewById(R.id.room_name);
 
         str_room_name = getIntent().getExtras().getString("room_name");
         str_user_name = getIntent().getExtras().getString("user_name");
 
         reference = FirebaseDatabase.getInstance().getReference().child("From univ to o_station").child(str_room_name);
 
-        setTitle(str_room_name + "채팅방");
+        room_view.setText(str_room_name+ "의 채팅방 입니다.");
+        room_view.setTextSize(30);
+        room_view.setGravity(Gravity.CENTER);
+        room_view.setTypeface(null, Typeface.BOLD);
+        room_view.setTypeface(null, Typeface.ITALIC);
 
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr_room);
         lv_chatting.setAdapter(arrayAdapter);

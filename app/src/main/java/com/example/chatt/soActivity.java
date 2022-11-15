@@ -40,6 +40,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+class soshow{
+    public String room;
+    public String TimeStamp;
+    public soshow(){};
+    public soshow(String TimeStamp,String room){
+        this.TimeStamp = TimeStamp;
+        this.room=room;
+    }
+}
+
 public class soActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -64,6 +74,7 @@ public class soActivity extends AppCompatActivity {
 
     LinkedHashMap<String, Object> map = new LinkedHashMap<>();
     LinkedHashMap<String, Object> t_map = new LinkedHashMap<>();
+    soshow s = new soshow();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,10 +115,25 @@ public class soActivity extends AppCompatActivity {
 
                         str_room = et_inDialog.getText().toString();
                         chat c = new chat(str_room,now);
-                        map.put(c.getRoom(),"");
 
-                        reference.child("From univ to o_station").updateChildren(map);
+                        if(map.containsKey(c.getRoom())){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(soActivity.this);
+                            builder.setTitle("중복!");
+                            builder.setMessage("채팅방 이름이 중복되었습니다. 다시 입력해 주세요.");
+                            builder.setPositiveButton("확인",null);
+                            builder.show();
+                        }else{
+                            map.put(c.getRoom(),"");
+                            reference.child("From univ to o_station").updateChildren(map);
+                            s.TimeStamp = String.valueOf(now);
+                            s.room = str_room;
+                            reference.child("so").push().setValue(s);
 
+                            Intent intent = new Intent(getApplicationContext(),soChatActivity.class);
+                            intent.putExtra("room_name",str_room);
+                            intent.putExtra("user_name",str_name);
+                            startActivity(intent);
+                        }
                     }
                 });
                 builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -120,7 +146,7 @@ public class soActivity extends AppCompatActivity {
             }
         });
 
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.orderByChild("TimeStamp").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -128,10 +154,16 @@ public class soActivity extends AppCompatActivity {
 
                 Iterator i = snapshot.child("From univ to o_station").getChildren().iterator();
                 Iterator j = snapshot.child("soTime").getChildren().iterator();
+                Iterator s = snapshot.child("so").getChildren().iterator();
 
-                while(i.hasNext()){
-                    m.add(new chat(((DataSnapshot)i.next()).getKey(),Long.valueOf(String.valueOf((((DataSnapshot)j.next()).getKey())))));
+                while(s.hasNext()){
+                    soshow show = ((DataSnapshot)s.next()).getValue(soshow.class);
+                    m.add(new chat(show.room,Long.valueOf(String.valueOf((((DataSnapshot)j.next()).getKey())))));
                 }
+
+//                while(i.hasNext()){
+//                    m.add(new chat(((DataSnapshot)i.next()).getKey(),Long.valueOf(String.valueOf((((DataSnapshot)j.next()).getKey())))));
+//                }
 
                 arr_roomList.clear();
                 arr_roomList.addAll(m);
