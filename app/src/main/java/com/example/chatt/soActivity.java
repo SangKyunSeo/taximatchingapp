@@ -116,7 +116,7 @@ public class soActivity extends AppCompatActivity {
                         str_room = et_inDialog.getText().toString();
                         chat c = new chat(str_room,now);
 
-                        if(map.containsKey(c.getRoom())){
+                        if(arrayAdapter.getCheckName(str_room)){
                             AlertDialog.Builder builder = new AlertDialog.Builder(soActivity.this);
                             builder.setTitle("중복!");
                             builder.setMessage("채팅방 이름이 중복되었습니다. 다시 입력해 주세요.");

@@ -11,6 +11,8 @@
         android:text="name"
         android:gravity="left|center_vertical|center_horizontal"
         android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_700"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +30,9 @@
         android:text="Chat message"
         android:gravity="left|center_vertical|center_horizontal"
         android:background="@drawable/rectangle"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
 
 

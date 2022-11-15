@@ -92,6 +92,14 @@ public class arrayAdapter extends RecyclerView.Adapter<arrayAdapter.ViewHolder> 
         return listViewItemList.size();
     }
 
+    public boolean getCheckName(String room){
+        for(int i=0;i<listViewItemList.size();i++){
+            if(listViewItemList.get(i).getRoom().contains(room))
+                return true;
+        }
+        return false;
+    }
+
     public void addItem(String room, long time){
         chat item = new chat();
         item.setRoom(room);
