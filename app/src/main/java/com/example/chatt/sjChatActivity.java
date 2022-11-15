@@ -42,7 +42,6 @@ public class sjChatActivity extends AppCompatActivity {
     private Button btn_send;
     private TextView room_view;
 
-    //private ArrayAdapter<String> arrayAdapter;
     private chatAdapter chatadapter;
     private ArrayList<String> arr_room = new ArrayList<>();
 
@@ -75,9 +74,6 @@ public class sjChatActivity extends AppCompatActivity {
         chatadapter = new chatAdapter();
         lv_chatting.setAdapter(chatadapter);
         lv_chatting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
-//        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr_room);
-//        lv_chatting.setAdapter(arrayAdapter);
-//        lv_chatting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +130,6 @@ public class sjChatActivity extends AppCompatActivity {
             chat_message = i.next().getValue().toString();
             chat_user = i.next().getValue().toString();
 
-            //chatadapter.add(chat_user + " : " + chat_message);
             chatadapter.add(chat_user,chat_message);
 
         }

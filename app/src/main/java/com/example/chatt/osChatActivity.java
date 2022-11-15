@@ -33,7 +33,7 @@ public class osChatActivity extends AppCompatActivity {
     private Button btn_send;
     private TextView room_view;
 
-    private ArrayAdapter<String> arrayAdapter;
+    private chatAdapter chatadapter;
     private ArrayList<String> arr_room = new ArrayList<>();
 
     private String str_room_name;
@@ -60,15 +60,10 @@ public class osChatActivity extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference().child("From o_station to univ").child(str_room_name);
 
-        room_view.setText(str_room_name+ "의 채팅방 입니다.");
-        room_view.setTextSize(30);
-        room_view.setGravity(Gravity.CENTER);
-        room_view.setTypeface(null, Typeface.BOLD);
-        room_view.setTypeface(null, Typeface.ITALIC);
+        room_view.setText(str_room_name);
 
-
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr_room);
-        lv_chatting.setAdapter(arrayAdapter);
+        chatadapter = new chatAdapter();
+        lv_chatting.setAdapter(chatadapter);
         lv_chatting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
         btn_send.setOnClickListener(new View.OnClickListener() {
@@ -126,11 +121,10 @@ public class osChatActivity extends AppCompatActivity {
             chat_message = i.next().getValue().toString();
             chat_user = i.next().getValue().toString();
 
-
-            arrayAdapter.add(chat_user + " : " + chat_message);
+            chatadapter.add(chat_user,chat_message);
 
         }
-        arrayAdapter.notifyDataSetChanged();
+        chatadapter.notifyDataSetChanged();
 
     }
 }
