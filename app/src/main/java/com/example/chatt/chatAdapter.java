@@ -24,6 +24,10 @@ public class chatAdapter extends BaseAdapter {
     private String myName = "";
     public chatAdapter(){}
 
+    public chatAdapter(String name){
+        this.myName = name;
+    }
+
     public chatAdapter(String name, String message){
         ChatMessage chatmessage = new ChatMessage(name,message);
         List<ChatMessage> list = new ArrayList<>();
@@ -45,7 +49,7 @@ public class chatAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int index) {
+    public ChatMessage getItem(int index) {
         return chatList.get(index);
     }
 

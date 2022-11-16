@@ -1,6 +1,7 @@
 package com.example.chatt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 
@@ -43,7 +45,7 @@ public class sjChatActivity extends AppCompatActivity {
     private EditText et_send;
     private Button btn_send;
     private TextView room_view;
-
+    private SharedPreferences prefs;
     private chatAdapter chatadapter;
     private ArrayList<String> arr_room = new ArrayList<>();
 
@@ -53,7 +55,7 @@ public class sjChatActivity extends AppCompatActivity {
     private DatabaseReference reference;
     private String key;
     private String chat_user;
-    private String chat_message;
+    private String chat_message = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +74,11 @@ public class sjChatActivity extends AppCompatActivity {
 
         room_view.setText(str_room_name);
 
-        chatadapter = new chatAdapter(str_user_name,"");
+
+
+
+        chatadapter = new chatAdapter(str_user_name);
+
         lv_chatting.setAdapter(chatadapter);
         lv_chatting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
@@ -135,6 +141,10 @@ public class sjChatActivity extends AppCompatActivity {
             chatadapter.add(chat_user,chat_message);
 
         }
+
+        if(chat_message.equals(""))
+            chatadapter = new chatAdapter();
+
         chatadapter.notifyDataSetChanged();
 
     }
