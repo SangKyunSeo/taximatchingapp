@@ -62,20 +62,20 @@ public class LoginActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String str_name = user.getText().toString();
-
-                if("".equals(str_name)){
-                    Toast.makeText(LoginActivity.this,"닉네임을 입력해주세요!",Toast.LENGTH_SHORT).show();
-                }else{
-                    Intent intent = new Intent(LoginActivity.this,RoomActivity.class);
-                    intent.putExtra("name",str_name);
-                    startActivity(intent);
-                }
-            }
-        });
+//        btn_login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String str_name = user.getText().toString();
+//
+//                if("".equals(str_name)){
+//                    Toast.makeText(LoginActivity.this,"닉네임을 입력해주세요!",Toast.LENGTH_SHORT).show();
+//                }else{
+//                    Intent intent = new Intent(LoginActivity.this,RoomActivity.class);
+//                    intent.putExtra("name",str_name);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
 
         signInButton.setOnClickListener(new View.OnClickListener(){
 
@@ -106,7 +106,6 @@ public class LoginActivity extends AppCompatActivity {
                     firebaseAuthWithGoogle(acct.getIdToken());
                 }
             } catch (ApiException e) {
-                Log.d("AAAA","@"+e.toString());
             }
 
         }

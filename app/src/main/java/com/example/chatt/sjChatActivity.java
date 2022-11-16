@@ -75,8 +75,6 @@ public class sjChatActivity extends AppCompatActivity {
         room_view.setText(str_room_name);
 
 
-
-
         chatadapter = new chatAdapter(str_user_name);
 
         lv_chatting.setAdapter(chatadapter);
