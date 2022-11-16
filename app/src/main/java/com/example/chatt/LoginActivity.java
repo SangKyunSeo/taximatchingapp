@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         gsa = GoogleSignIn.getLastSignedInAccount(LoginActivity.this);
         if(gsa!=null){
-            Toast.makeText(LoginActivity.this,"로그인 되어있습니다.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,gsa.getDisplayName()+"님 로그인 되어있습니다.",Toast.LENGTH_SHORT).show();
         }
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))

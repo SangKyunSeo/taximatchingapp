@@ -72,7 +72,7 @@ public class sjChatActivity extends AppCompatActivity {
 
         room_view.setText(str_room_name);
 
-        chatadapter = new chatAdapter();
+        chatadapter = new chatAdapter(str_user_name,"");
         lv_chatting.setAdapter(chatadapter);
         lv_chatting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
