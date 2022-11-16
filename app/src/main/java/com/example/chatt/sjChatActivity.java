@@ -1,9 +1,11 @@
 package com.example.chatt;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -66,7 +68,6 @@ public class sjChatActivity extends AppCompatActivity {
 
         str_room_name = getIntent().getExtras().getString("room_name");
         str_user_name = getIntent().getExtras().getString("user_name");
-
         reference = FirebaseDatabase.getInstance().getReference().child("From univ to j_station").child(str_room_name);
 
         room_view.setText(str_room_name);
@@ -86,6 +87,7 @@ public class sjChatActivity extends AppCompatActivity {
                 DatabaseReference root = reference.child(key);
 
                 Map<String,Object> objectMap = new HashMap<String,Object>();
+
                 objectMap.put("name",str_user_name);
                 objectMap.put("message",et_send.getText().toString());
 

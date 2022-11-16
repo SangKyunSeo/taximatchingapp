@@ -151,7 +151,6 @@ public class sjActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 ArrayList<chat> m = new ArrayList<>();
-
                 //Iterator<String> i = map.keySet().iterator();
                 Iterator i = snapshot.child("From univ to j_station").getChildren().iterator();
                 Iterator j = snapshot.child("sjTime").getChildren().iterator();
