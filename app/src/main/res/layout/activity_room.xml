@@ -1,68 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity"
     android:stretchColumns="0,1"
+    android:background="@drawable/backgroundgradtaion"
+    android:clipToPadding="false"
+
     >
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="출발지 목적지 선택"
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="출발지와 도착지를 \n   선택해 주세요"
+        android:fontFamily="@font/mabiclassic"
+        android:textSize="35dp"
+        android:textColor="@color/black"
         />
 
-    <TableRow>
+
     <Button
-        android:layout_marginTop="250dp"
         android:id="@+id/btn_sj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/yellow"
-        android:text="학교->조치원역"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/btn_round"
+        android:text="학교  ->  조치원역"
         android:textStyle="bold"
         android:textSize="15sp"
+        app:elevation="10dp"
+        android:translationZ="10dp"
+        android:stateListAnimator="@null"
         />
-    <Button
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="5dp"
-        android:id="@+id/btn_js"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/red"
-        android:text="조치원역->학교"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        />
-    </TableRow>
 
-    <TableRow>
     <Button
-        android:background="@color/yellow"
-        android:layout_marginTop="20dp"
         android:id="@+id/btn_so"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="학교->오송역"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_round"
+        android:text="학교  ->  오송역"
         android:textStyle="bold"
         android:textSize="15sp"
+        app:elevation="10dp"
+        android:translationZ="10dp"
+        android:stateListAnimator="@null"
         />
 
     <Button
-        android:layout_marginLeft="5dp"
+        android:id="@+id/btn_js"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/btn_os"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="오송역->학교"
-        android:textColor="@color/white"
-        android:background="@color/red"
+        android:background="@drawable/btn_round"
+        android:text="조치원역  ->  학교"
         android:textStyle="bold"
         android:textSize="15sp"
+        android:textColor="@color/black"
+        app:elevation="10dp"
+        android:translationZ="10dp"
+        android:stateListAnimator="@null"
         />
-    </TableRow>
-</TableLayout>
+
+    <Button
+        android:id="@+id/btn_os"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:text="오송역  ->  학교"
+        android:textColor="@color/black"
+        android:background="@drawable/btn_round"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:elevation="10dp"
+        android:translationZ="10dp"
+        android:stateListAnimator="@null"
+        />
+
+</LinearLayout>

@@ -48,8 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         signInButton = (SignInButton)findViewById(R.id.btn_google);
         mAuth = FirebaseAuth.getInstance();
 
-        user = (EditText)findViewById(R.id.user);
-        btn_login = (Button)findViewById(R.id.btn_login);
+//        user = (EditText)findViewById(R.id.user);
+//        btn_login = (Button)findViewById(R.id.btn_login);
 
         gsa = GoogleSignIn.getLastSignedInAccount(LoginActivity.this);
         if(gsa!=null){
