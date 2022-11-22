@@ -162,13 +162,8 @@ public class jsActivity extends AppCompatActivity {
                     m.add(new chat(show.room,Long.valueOf(String.valueOf((((DataSnapshot)j.next()).getKey())))));
                 }
 
-//                while(i.hasNext()){
-//                    m.add(new chat(((DataSnapshot)i.next()).getKey(),Long.valueOf(String.valueOf((((DataSnapshot)j.next()).getKey())))));
-//                }
-
                 arr_roomList.clear();
                 arr_roomList.addAll(m);
-
                 recyclerView.setAdapter(arrayAdapter);
 
                 arrayAdapter.notifyDataSetChanged();

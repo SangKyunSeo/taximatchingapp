@@ -46,11 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         signInButton = (SignInButton)findViewById(R.id.btn_google);
-        mAuth = FirebaseAuth.getInstance();
 
 //        user = (EditText)findViewById(R.id.user);
 //        btn_login = (Button)findViewById(R.id.btn_login);
-
+        mAuth = FirebaseAuth.getInstance();
         gsa = GoogleSignIn.getLastSignedInAccount(LoginActivity.this);
         if(gsa!=null){
             Toast.makeText(LoginActivity.this,gsa.getDisplayName()+"님 로그인 되어있습니다.",Toast.LENGTH_SHORT).show();
@@ -78,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
 //        });
 
         signInButton.setOnClickListener(new View.OnClickListener(){
-
             public void onClick(View v){
                 signIn();
             }

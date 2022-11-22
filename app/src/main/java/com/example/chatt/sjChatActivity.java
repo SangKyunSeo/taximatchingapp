@@ -1,5 +1,6 @@
 package com.example.chatt;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.ChildEventListener;
@@ -44,8 +46,8 @@ public class sjChatActivity extends AppCompatActivity {
     private ListView lv_chatting;
     private EditText et_send;
     private Button btn_send;
+    private Button btn_exit;
     private TextView room_view;
-    private SharedPreferences prefs;
     private chatAdapter chatadapter;
     private ArrayList<String> arr_room = new ArrayList<>();
 
@@ -67,6 +69,7 @@ public class sjChatActivity extends AppCompatActivity {
         lv_chatting = (ListView)findViewById(R.id.lv_chatting);
         room_view = (TextView)findViewById(R.id.room_name);
         btn_send = (Button)findViewById(R.id.btn_send);
+        btn_exit = (Button)findViewById(R.id.btn_exit);
 
         str_room_name = getIntent().getExtras().getString("room_name");
         str_user_name = getIntent().getExtras().getString("user_name");
@@ -98,6 +101,32 @@ public class sjChatActivity extends AppCompatActivity {
                 root.updateChildren(objectMap);
 
                 et_send.setText("");
+            }
+        });
+
+        btn_exit.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(sjChatActivity.this);
+                builder.setTitle("채팅방 나가기");
+                builder.setPositiveButton("예",new DialogInterface.OnClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //나가기 클릭 시 채팅방 지우기 구현 필요
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("아니오",new DialogInterface.OnClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alertD = builder.create();
+                alertD.show();
             }
         });
 

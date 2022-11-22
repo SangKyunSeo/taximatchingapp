@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:id="@+id/room_name"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:text="room_name"
         android:background="@drawable/shape"
         android:textStyle="bold"
@@ -16,6 +19,15 @@
         android:textColor="@color/black"
 
         />
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_marginLeft="350dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btncircle"
+            android:text="나가기"
+            android:textColor="@color/white"/>
+    </FrameLayout>
 
    <ListView
        android:id="@+id/lv_chatting"
